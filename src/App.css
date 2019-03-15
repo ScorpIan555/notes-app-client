@@ -21,6 +21,10 @@
 }
 */
 
+.app-header {
+  margin-top: 15px;
+}
+
 .App-link {
   color: #61dafb;
   padding-right: 5px;
@@ -43,17 +47,29 @@
   font-weight: 700;
   color: #6c757d;
   /* padding: 15px; */
+
 }
 
 .App .navbar-brand a {
   font-weight: 700;
   color: #6c757d;
   /* padding: 15px; */
+
+}
+
+a.navbar-link {
+  text-decoration: none;
+  align-items: center;
+  margin-left: -45px;
+}
+
+.navbar {
+  height: 3.25em;
 }
 
 .nav-link {
-  margin-left: 0px;
-  margin-right: 0px;
+  /* margin-left: 15px; */
+  margin-right: 15px;
 }
 
 .nav-link.active {
@@ -61,9 +77,12 @@
 }
 
 #the-navbar {
-  padding-top: 0px;
-  padding-bottom: 0px;
+
   border: 1px solid #e7e7e7;
   border-radius: 4px;
   background-color: #f8f8f8;
+}
+
+.navbar-nav {
+  line-height: 215%;
 }
