@@ -1,88 +1,60 @@
-.App {
-
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-/*
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-*/
-
-.app-header {
-  margin-top: 15px;
-}
-
-.App-link {
-  color: #61dafb;
-  padding-right: 5px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* start original code - 3/16 reinput */
 
 .App {
   margin-top: 15px;
 }
 
 .App .navbar-brand {
-  font-weight: 700;
-  color: #6c757d;
-  /* padding: 15px; */
-
+  font-weight: bold;
 }
 
+/* end original code - 3/16 reinput */
+
+
+/*   */
+/*   */
+/*  Navbar positioning within App.js */
+.navbar {
+  height: 3.25em;
+  margin-bottom: 20px;
+  line-height: 215%;
+}
+
+/*   */
+/*   */
+/*  Positioning items within <Navbar> */
+/* position index link within navbar */
+.app-header {
+  margin-top: 15px;
+}
+
+/* app-header style and postion within navbar */
 .App .navbar-brand a {
   font-weight: 700;
   color: #6c757d;
-  /* padding: 15px; */
-
-}
-
-a.navbar-link {
   text-decoration: none;
   align-items: center;
   margin-left: -45px;
+
 }
 
-.navbar {
-  height: 3.25em;
-}
 
+/*  Position signup & login links within navbar   */
 .nav-link {
-  /* margin-left: 15px; */
   margin-right: 15px;
 }
 
+/* When active, signin/login links should change color */
 .nav-link.active {
   background-color: #e7e7e7;
 }
 
+
+/* see app_issues file, migration issue #4 */
+/* https://v4-alpha.getbootstrap.com/migration/#navbar */
 #the-navbar {
-
   border: 1px solid #e7e7e7;
-  border-radius: 4px;
   background-color: #f8f8f8;
-}
-
-.navbar-nav {
-  line-height: 215%;
+  border-radius: 4px;
+  margin-bottom: 15px;
 }

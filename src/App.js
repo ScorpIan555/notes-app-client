@@ -40,7 +40,7 @@ class App extends Component {
     await Auth.signOut();
 
     this.userHasAuthenticated(false);
-    
+
     this.props.history.push("/login");
   }
 
@@ -62,9 +62,9 @@ class App extends Component {
     return (
       !this.state.isAuthenticating &&
       <div className="App container">
-        <Navbar id="the-navbar" bg="light" expand="md">
+        <Navbar id="the-navbar" className="">
           <Navbar.Brand as="ul" className="app-header" href="#home">
-            <Link className="navbar-link" to="/">Scratch</Link>
+            <Link to="/">Scratch</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
@@ -73,14 +73,12 @@ class App extends Component {
                 ? <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
                 : <Fragment>
 
-
                     <LinkContainer to="/signup">
                       <Nav.Link className="">Signup</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/login">
                       <Nav.Link>Login</Nav.Link>
                     </LinkContainer>
-
 
                   </Fragment>
                 }
