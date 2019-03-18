@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ListGroup, ListGroupItem, Form } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import "./Home.css";
 import { API } from "aws-amplify";
@@ -47,23 +47,25 @@ export default class Home extends Component {
       (note, i) =>
         i !== 0
           ? <LinkContainer
+              as="a"
               key={note.noteId}
               to={`/notes/${note.noteId}`}
             >
-              <ListGroupItem header={note.content.trim().split("\n")[0]}>
-                {"Created: " + new Date(note.createdAt).toLocaleString()}
-              </ListGroupItem>
+              <ListGroup.Item action header={note.content.trim().split("\n")[0]}>
+                <h4>{note.content.trim().split("\n")[0]}</h4>
+                <p>{"Created: " + new Date(note.createdAt).toLocaleString()}</p>
+              </ListGroup.Item>
             </LinkContainer>
 
-          : <LinkContainer
+          : <LinkContainer  className="create-note-link"
               key="new"
               to="/notes/new"
             >
-              <ListGroupItem>
+              <ListGroup.Item action >
                 <h4>
-                  <b>{"\uFF0B"}</b> Create a new note
+                  <b>{"\uFF0B"}</b> Create Note
                 </h4>
-              </ListGroupItem>
+              </ListGroup.Item>
             </LinkContainer>
     );
   }
@@ -84,7 +86,7 @@ export default class Home extends Component {
 
     return (
       <div className="notes">
-        <Form.Label className="page-header">Your Notes</Form.Label>
+        <h1 as="h2" className="page-header">Your Notes</h1>
         <ListGroup>
           {!this.state.isLoading && this.renderNotesList(this.state.notes)}
         </ListGroup>

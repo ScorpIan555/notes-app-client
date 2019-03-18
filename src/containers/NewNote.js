@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { Form,
-         FormGroup,
-         FormControl,
-         FormLabel } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
@@ -76,21 +73,20 @@ export default class NewNote extends Component {
     return (
       <div className="NewNote">
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="content">
+          <Form.Group controlId="content">
             <Form.Control
               onChange={this.handleChange}
               value={this.state.content}
-              componentClass="textarea"
               as="textarea"
             />
-          </FormGroup>
-          <FormGroup controlId="file">
-            <FormLabel>Attachment</FormLabel>
-            <FormControl onChange={this.handleFileChange} type="file" />
-          </FormGroup>
+          </Form.Group>
+          <Form.Group controlId="file">
+            <Form.Label>Attachment</Form.Label>
+            <Form.Control onChange={this.handleFileChange} type="file" />
+          </Form.Group>
           <LoaderButton
             block
-            bsStyle="primary"
+            variant="primary"
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"

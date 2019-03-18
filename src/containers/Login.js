@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./Login.css";
 import { Auth } from "aws-amplify";
 
@@ -54,23 +54,23 @@ export default class Login extends Component {
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email" variant="large">
-            <FormLabel className="label login-form-label">Email</FormLabel>
-            <FormControl
+          <Form.Group controlId="email" variant="large">
+            <Form.Label className="label login-form-label">Email</Form.Label>
+            <Form.Control
               autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
             />
-          </FormGroup>
-          <FormGroup controlId="password" variant="large">
-            <FormLabel className="label login-form-label">Password</FormLabel>
-            <FormControl
+          </Form.Group>
+          <Form.Group controlId="password" variant="large">
+            <Form.Label className="label login-form-label">Password</Form.Label>
+            <Form.Control
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
-          </FormGroup>
+          </Form.Group>
           <Button
             block
             className="btn-lg"

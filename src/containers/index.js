@@ -3,6 +3,7 @@ import NotFound from './NotFound'
 import Login from './Login'
 import Signup from './Signup'
 import NewNote from './NewNote'
+import Notes from './Notes'
 
 export {
 
@@ -10,6 +11,7 @@ export {
   NotFound,
   Login,
   Signup,
-  NewNote
+  NewNote,
+  Notes
 
 }

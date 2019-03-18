@@ -5,7 +5,7 @@ export default {
   s3: {
 
     REGION: "us-east-1",
-    BUCKET: "serverless-stack-notes-a-serverlessdeploymentbuck-1wcfuicn3vyyp"
+    BUCKET: "serverless-stack-notes-app-api-attachmentsbucket-1dghsqg3dicvq"
 
   },
   apiGateway: {

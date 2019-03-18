@@ -29,8 +29,52 @@
 
 /* End Original code */
 
+
+
+
+/* Bootstrap 4 SASS source settings */
+
 .page-header {
     padding-bottom: 9px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #eee;
 }
+
+a.list-group-item, button.list-group-item {
+    color: #555;
+    padding: .5em 1em .1em 1em;
+}
+
+.list-group-item h4 {
+  font-size: 1.25em;
+  /* color: #111 */
+}
+
+.create-note-link {
+  margin-bottom: .75em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* h4 */
