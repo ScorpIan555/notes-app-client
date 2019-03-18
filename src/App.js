@@ -14,7 +14,7 @@ class App extends Component {
 
   this.state = {
     isAuthenticated: false,
-    isAuthenticating: false
+    isAuthenticating: true
     };
   }
 
@@ -30,6 +30,9 @@ class App extends Component {
     }
 
     this.setState({ isAuthenticating: false });
+    console.log('App.Auth::', Auth)
+    console.log('App.this.state', this.state)
+    console.log('App.this.props', this.props)
   }
 
   userHasAuthenticated = authenticated => {
@@ -53,13 +56,13 @@ class App extends Component {
 
     console.log("<App /> this:::", this)
     console.log("<App /> this.props:::", this.props)
-    // console.log("<App /> this.props:::", this)
-    // activeKey={this.props.location.pathname}
+    console.log("<App /> this.props.match:::", this.props.match)
     console.log("<App /> this.props.location:::", this.props.location)
-    // console.log("<App /> this.props.location.pathname:::", this.props.location.pathname)
-
+    console.log("<App /> this.props.location:::", this.props.history)
+    
 
     return (
+
       !this.state.isAuthenticating &&
       <div className="App container">
         <Navbar id="the-navbar" className="">

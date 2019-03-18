@@ -7,6 +7,8 @@ import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
 import { API } from "aws-amplify";
+import { s3Upload } from "../libs/awsLib";
+
 
 
 export default class NewNote extends Component {
@@ -43,21 +45,24 @@ export default class NewNote extends Component {
       return;
     }
 
-    console.log('handleSubmit.event:::', event)
-
     this.setState({ isLoading: true });
 
     try {
+      const attachment = this.file
+        ? await s3Upload(this.file)
+        : null;
+
       await this.createNote({
+        attachment,
         content: this.state.content
       });
       this.props.history.push("/");
     } catch (e) {
-      console.log("error", e)
       alert(e);
       this.setState({ isLoading: false });
     }
   }
+
 
   createNote(note) {
     console.log('NewNote.note:', note)
@@ -98,30 +103,3 @@ export default class NewNote extends Component {
     );
   }
 }
-
-
-// <div className="NewNote">
-//   <form onSubmit={this.handleSubmit}>
-//     <FormGroup controlId="content">
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.content}
-//         componentClass="textarea"
-//       />
-//     </FormGroup>
-//     <FormGroup controlId="file">
-//       <FormLabel>Attachment</FormLabel>
-//       <FormControl onChange={this.handleFileChange} type="file" />
-//     </FormGroup>
-//     <LoaderButton
-//       block
-//       bsStyle="primary"
-//       bsSize="large"
-//       disabled={!this.validateForm()}
-//       type="submit"
-//       isLoading={this.state.isLoading}
-//       text="Create"
-//       loadingText="Creating…"
-//     />
-//   </form>
-// </div>

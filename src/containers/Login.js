@@ -31,20 +31,20 @@ export default class Login extends Component {
     this.setState({ isLoading: true });
 
     try {
-      console.log('AUTH object at login1::: ', Auth)
-      console.log('AUTH object at login1::: ', JSON.stringify(Auth))
+      // console.log('AUTH object at login1::: ', Auth)
+      // console.log('AUTH object at login1::: ', JSON.stringify(Auth))
 
       await Auth.signIn(this.state.email, this.state.password);
         console.log('AUTH object at login2 (after sig)::: ', Auth)
         console.log('AUTH object at login1::: ', JSON.stringify(Auth))
-        console.log('verifiedContact', Auth)
+
         this.props.userHasAuthenticated(true);
         this.props.history.push("/");
 
     } catch (e) {
       alert(e.message);
-      console.log('AUTH object at login2 (after sig)::: ', Auth)
-      console.log('AUTH object at login1::: ', JSON.stringify(Auth))
+      // console.log('AUTH object at login2 (after sig)::: ', Auth)
+      // console.log('AUTH object at login1::: ', JSON.stringify(Auth))
       this.setState({ isLoading: false });
     }
   }
