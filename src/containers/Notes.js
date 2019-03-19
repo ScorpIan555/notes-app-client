@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { API, Storage } from "aws-amplify";
-import { Form } from "react-bootstrap";
+import { Form, FormGroup, FormControl } from "react-bootstrap";
 import { LoaderButton } from "../components";
 import config from "../config";
 import "./Notes.css";
-
+import { s3Upload } from "../libs/awsLib";
 
 export default class Notes extends Component {
   constructor(props) {
@@ -24,11 +24,14 @@ export default class Notes extends Component {
       let attachmentURL;
       const note = await this.getNote();
       const { content, attachment } = note;
+      console.log('Notes.componentDidMount.note', note)
+      console.log('Notes.componentDidMount.content', content)
+      console.log('Notes.componentDidMount.this.state', this.state)
 
       if (attachment) {
         attachmentURL = await Storage.vault.get(attachment);
       }
-
+      console.log('attachmentURL::', attachmentURL)
       this.setState({
         note,
         content,
@@ -61,7 +64,15 @@ export default class Notes extends Component {
     this.file = event.target.files[0];
   }
 
+  saveNote(note) {
+    return API.put("notes", `/notes/${this.props.match.params.id}`, {
+      body: note
+    });
+  }
+
   handleSubmit = async event => {
+    let attachment;
+
     event.preventDefault();
 
     if (this.file && this.file.size > config.MAX_ATTACHMENT_SIZE) {
@@ -70,7 +81,23 @@ export default class Notes extends Component {
     }
 
     this.setState({ isLoading: true });
+
+    try {
+      if (this.file) {
+        attachment = await s3Upload(this.file);
+      }
+
+      await this.saveNote({
+        content: this.state.content,
+        attachment: attachment || this.state.note.attachment
+      });
+      this.props.history.push("/");
+    } catch (e) {
+      alert(e);
+      this.setState({ isLoading: false });
+    }
   }
+
 
   handleDelete = async event => {
     event.preventDefault();
@@ -91,26 +118,26 @@ export default class Notes extends Component {
       <div className="Notes">
         {this.state.note &&
           <form onSubmit={this.handleSubmit}>
-            <Form.Group controlId="content">
+            <FormGroup controlId="content">
               <Form.Control
                 onChange={this.handleChange}
                 value={this.state.content}
                 as="textarea"
               />
-            </Form.Group>
+            </FormGroup>
             {this.state.note.attachment &&
-              <Form.Group>
+              <FormGroup>
                 <Form.Label>Attachment</Form.Label>
-                <Form.Control.Static>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={this.state.attachmentURL}
-                  >
-                    {this.formatFilename(this.state.note.attachment)}
-                  </a>
-                </Form.Control.Static>
-              </Form.Group>}
+                  <Form.Group>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={this.state.attachmentURL}
+                    >
+                      {this.formatFilename(this.state.note.attachment)}
+                    </a>
+                  </Form.Group>
+              </FormGroup>}
             <Form.Group controlId="file">
               {!this.state.note.attachment &&
                 <Form.Label>Attachment</Form.Label>}
