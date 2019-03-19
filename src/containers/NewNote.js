@@ -20,6 +20,12 @@ export default class NewNote extends Component {
     };
   }
 
+  componentDidUpdate() {
+    console.log("this.state:::::", this.state)
+    console.log("this.state.isLoading?:::::", this.state.isLoading)
+    console.log("this.state.content:::::", this.state.content)
+  }
+
   validateForm() {
     return this.state.content.length > 0;
   }
@@ -86,8 +92,7 @@ export default class NewNote extends Component {
           </Form.Group>
           <LoaderButton
             block
-            variant="primary"
-            bsSize="large"
+            variant="primary"            
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}

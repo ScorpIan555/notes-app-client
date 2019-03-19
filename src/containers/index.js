@@ -5,6 +5,7 @@ import Signup from './Signup'
 import NewNote from './NewNote'
 import Notes from './Notes'
 
+
 export {
 
   Home,
@@ -12,6 +13,7 @@ export {
   Login,
   Signup,
   NewNote,
-  Notes
+  Notes,
+
 
 }
