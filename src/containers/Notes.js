@@ -13,6 +13,8 @@ export default class Notes extends Component {
     this.file = null;
 
     this.state = {
+      isLoading: null,
+      isDeleting: null,
       note: null,
       content: "",
       attachmentURL: null
