@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { API, Storage } from "aws-amplify";
-import { Form, FormGroup, FormControl } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { LoaderButton } from "../components";
 import config from "../config";
 import "./Notes.css";
@@ -133,15 +133,15 @@ export default class Notes extends Component {
       <div className="Notes">
         {this.state.note &&
           <form onSubmit={this.handleSubmit}>
-            <FormGroup controlId="content">
+            <Form.Group controlId="content">
               <Form.Control
                 onChange={this.handleChange}
                 value={this.state.content}
                 as="textarea"
               />
-            </FormGroup>
+            </Form.Group>
             {this.state.note.attachment &&
-              <FormGroup>
+              <Form.Group>
                 <Form.Label>Attachment</Form.Label>
                   <Form.Group>
                     <a
@@ -152,7 +152,7 @@ export default class Notes extends Component {
                       {this.formatFilename(this.state.note.attachment)}
                     </a>
                   </Form.Group>
-              </FormGroup>}
+              </Form.Group>}
             <Form.Group controlId="file">
               {!this.state.note.attachment &&
                 <Form.Label>Attachment</Form.Label>}
