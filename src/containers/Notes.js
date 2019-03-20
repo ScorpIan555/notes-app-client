@@ -23,6 +23,7 @@ export default class Notes extends Component {
 
   async componentDidMount() {
     try {
+      
       let attachmentURL;
       const note = await this.getNote();
       const { content, attachment } = note;

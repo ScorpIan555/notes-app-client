@@ -6,7 +6,8 @@ import { Home,
          Login,
          Signup,
          Notes,
-         NewNote } from "./containers";
+         NewNote,
+         Settings  } from "./containers";
 import { AppliedRoute,
          AuthenticatedRoute,
          UnauthenticatedRoute } from "./components"
@@ -18,6 +19,7 @@ export default ({childProps}) =>
       <AppliedRoute path="/" exact component={Home} props={childProps} />
       <UnauthenticatedRoute path="/login" exact component={Login} props={childProps} />
       <UnauthenticatedRoute path="/signup" exact component={Signup} props={childProps} />
+      <UnauthenticatedRoute path="/settings" exact component={Settings} props={childProps} />
       <AuthenticatedRoute path="/notes/new" exact component={NewNote} props={childProps} />
       <AuthenticatedRoute path="/notes/:id" exact component={Notes} props={childProps} />
 

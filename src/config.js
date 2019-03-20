@@ -22,7 +22,6 @@ const dev = {
     IDENTITY_POOL_ID: "us-east-1:f7d18fe9-96cb-4b84-92d9-573d8ccbc839"
 
   }
-
 };
 
 
@@ -50,7 +49,6 @@ const prod = {
     IDENTITY_POOL_ID: "us-east-1:f0553bdc-8b49-4f94-a503-c8a9dff7c43d"
 
   }
-
 };
 
 
