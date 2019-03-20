@@ -1,6 +1,7 @@
 const dev = {
 
-  MAX_ATTACHMENT_SIZE: 5000000,
+
+  STRIPE_KEY: "pk_test_LGXzgY8j5yTHBrtlmvfAQIgY",
 
   s3: {
 
@@ -27,7 +28,7 @@ const dev = {
 
 const prod = {
 
-  MAX_ATTACHMENT_SIZE: 5000000,
+  STRIPE_KEY: "pk_test_LGXzgY8j5yTHBrtlmvfAQIgY",
 
   s3: {
 
