@@ -7,7 +7,6 @@ import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 
 
-
 export default class NewNote extends Component {
   constructor(props) {
     super(props);
@@ -18,12 +17,6 @@ export default class NewNote extends Component {
       isLoading: null,
       content: ""
     };
-  }
-
-  componentDidUpdate() {
-    console.log("this.state:::::", this.state)
-    console.log("this.state.isLoading?:::::", this.state.isLoading)
-    console.log("this.state.content:::::", this.state.content)
   }
 
   validateForm() {
@@ -79,6 +72,7 @@ export default class NewNote extends Component {
     return (
       <div className="NewNote">
         <form onSubmit={this.handleSubmit}>
+
           <Form.Group controlId="content">
             <Form.Control
               onChange={this.handleChange}
@@ -86,19 +80,22 @@ export default class NewNote extends Component {
               as="textarea"
             />
           </Form.Group>
+
           <Form.Group controlId="file">
             <Form.Label>Attachment</Form.Label>
-            <Form.Control onChange={this.handleFileChange} type="file" />
+            <Form.Control size="sm" onChange={this.handleFileChange} type="file" />
           </Form.Group>
+
           <LoaderButton
-            block
-            variant="primary"            
+            className="btn-block"
+            variant="primary"
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
             text="Create"
             loadingText="Creating…"
           />
+        
         </form>
       </div>
     );

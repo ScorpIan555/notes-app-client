@@ -23,18 +23,15 @@ export default class Notes extends Component {
 
   async componentDidMount() {
     try {
-      
+
       let attachmentURL;
       const note = await this.getNote();
       const { content, attachment } = note;
-      console.log('Notes.componentDidMount.note', note)
-      console.log('Notes.componentDidMount.content', content)
-      console.log('Notes.componentDidMount.this.state', this.state)
 
       if (attachment) {
         attachmentURL = await Storage.vault.get(attachment);
       }
-      console.log('attachmentURL::', attachmentURL)
+
       this.setState({
         note,
         content,

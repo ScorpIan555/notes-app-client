@@ -26,13 +26,16 @@
   color: #666;
 }
 
+.Home .lander div {
+  padding-top: 20px;
+}
+.Home .lander div a:first-child {
+  margin-right: 20px;
+}
+
 
 /* End Original code */
 
-
-
-
-/* Bootstrap 4 SASS source settings */
 
 .page-header {
     padding-bottom: 9px;

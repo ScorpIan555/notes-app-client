@@ -30,9 +30,6 @@ class App extends Component {
     }
 
     this.setState({ isAuthenticating: false });
-    console.log('App.Auth::', Auth)
-    console.log('App.this.state', this.state)
-    console.log('App.this.props', this.props)
   }
 
   userHasAuthenticated = authenticated => {
@@ -54,13 +51,6 @@ class App extends Component {
       userHasAuthenticated: this.userHasAuthenticated
     };
 
-    console.log("<App /> this:::", this)
-    console.log("<App /> this.props:::", this.props)
-    console.log("<App /> this.props.match:::", this.props.match)
-    console.log("<App /> this.props.location:::", this.props.location)
-    console.log("<App /> this.props.location:::", this.props.history)
-
-
     return (
 
       !this.state.isAuthenticating &&
@@ -73,7 +63,9 @@ class App extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav className="" >
+
                 {this.state.isAuthenticated
+
                   ?
                     <Fragment>
                       <LinkContainer to="/settings">
@@ -81,6 +73,7 @@ class App extends Component {
                       </LinkContainer>
                       <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
                     </Fragment>
+
                   :
                     <Fragment>
 
@@ -93,6 +86,7 @@ class App extends Component {
 
                     </Fragment>
                   }
+                  
               </Nav>
             </Navbar.Collapse>
           </Navbar >

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  FormGroup,
-  FormControl,
-  Form
-} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./Signup.css";
 import { Auth } from 'aws-amplify'
@@ -81,16 +77,16 @@ export default class Signup extends Component {
   renderConfirmationForm() {
     return (
       <form onSubmit={this.handleConfirmationSubmit}>
-        <FormGroup controlId="confirmationCode" variant="large">
+        <Form.Group controlId="confirmationCode" variant="large">
           <Form.Label>Confirmation Code</Form.Label>
-          <FormControl
+          <Form.Control
             autoFocus
             type="tel"
             value={this.state.confirmationCode}
             onChange={this.handleChange}
           />
           <Form.Text className="text-muted">Please check your email for the code.</Form.Text>
-        </FormGroup>
+        </Form.Group>
         <LoaderButton
           block
           className="btn-lg"
@@ -107,31 +103,31 @@ export default class Signup extends Component {
   renderForm() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <FormGroup controlId="email" variant="large">
+        <Form.Group controlId="email" variant="large">
           <Form.Label>Email</Form.Label>
-          <FormControl
+          <Form.Control
             autoFocus
             type="email"
             value={this.state.email}
             onChange={this.handleChange}
           />
-        </FormGroup>
-        <FormGroup controlId="password" variant="large">
+      </Form.Group>
+        <Form.Group controlId="password" variant="large">
           <Form.Label>Password</Form.Label>
-          <FormControl
+          <Form.Control
             value={this.state.password}
             onChange={this.handleChange}
             type="password"
           />
-        </FormGroup>
-        <FormGroup controlId="confirmPassword" variant="large">
+        </Form.Group>
+        <Form.Group controlId="confirmPassword" variant="large">
           <Form.Label>Confirm Password</Form.Label>
-          <FormControl
+          <Form.Control
             value={this.state.confirmPassword}
             onChange={this.handleChange}
             type="password"
           />
-        </FormGroup>
+        </Form.Group>
         <LoaderButton
           block
           className="btn-lg"
