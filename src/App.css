@@ -18,6 +18,7 @@
   height: 3.25em;
   margin-bottom: 20px;
   line-height: 215%;
+  flex-wrap: nowrap;
 }
 
 /*   */

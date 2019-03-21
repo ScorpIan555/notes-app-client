@@ -66,7 +66,7 @@ class App extends Component {
       !this.state.isAuthenticating &&
 
         <div className="App container">
-          <Navbar id="the-navbar" className="">
+          <Navbar id="the-navbar" expand="md">
             <Navbar.Brand as="ul" className="app-header" href="#home">
               <Link to="/">Scratch</Link>
             </Navbar.Brand>
