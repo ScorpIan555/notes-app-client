@@ -55,7 +55,7 @@ class BillingForm extends Component {
 
     return (
       <form className="BillingForm" onSubmit={this.handleSubmitClick}>
-        <Form.Group bsSize="large" controlId="storage">
+        <Form.Group variant="" controlId="storage">
           <Form.Label>Storage</Form.Label>
           <Form.Control
             min="0"
@@ -66,7 +66,7 @@ class BillingForm extends Component {
           />
         </Form.Group>
         <hr />
-        <Form.Group bsSize="large" controlId="name">
+        <Form.Group variant="" controlId="name">
           <Form.Label>Cardholder&apos;s name</Form.Label>
           <Form.Control
             type="text"
@@ -84,8 +84,7 @@ class BillingForm extends Component {
           }}
         />
         <LoaderButton
-          block
-          bsSize="large"
+          className="btn-block"
           type="submit"
           text="Purchase"
           isLoading={loading}
